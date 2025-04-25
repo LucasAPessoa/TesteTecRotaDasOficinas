@@ -17,6 +17,8 @@ public static class PersistenceDependencyInjector {
     public static IServiceCollection InjectPersistenceDependencies(this IServiceCollection services) {
         services.AddDbContext<DefaultContext>(options => options.UseInMemoryDatabase("rota"));
 
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
         return services;
     }
 }
