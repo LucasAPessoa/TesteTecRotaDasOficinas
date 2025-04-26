@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using RO.DevTest.Application.Common.Interfaces;
 using RO.DevTest.Application.Contracts.Infrastructure;
+using RO.DevTest.Application.Contracts.Persistance.Repositories;
+using RO.DevTest.Application.Features.Sales.Common;
 using RO.DevTest.Domain.Entities;
 using RO.DevTest.Infrastructure.Abstractions;
 using RO.DevTest.Persistence;
+using RO.DevTest.Persistence.Repositories;
 
 namespace RO.DevTest.Infrastructure.IoC;
 
@@ -22,7 +26,7 @@ public static class InfrastructureDependecyInjector {
         services.AddDefaultIdentity<User>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<DefaultContext>()
-            .AddDefaultTokenProviders();
+        .AddDefaultTokenProviders();
 
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IIdentityAbstractor, IdentityAbstractor>();
