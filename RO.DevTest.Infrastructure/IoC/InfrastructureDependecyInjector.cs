@@ -24,6 +24,7 @@ public static class InfrastructureDependecyInjector {
             .AddEntityFrameworkStores<DefaultContext>()
             .AddDefaultTokenProviders();
 
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IIdentityAbstractor, IdentityAbstractor>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
