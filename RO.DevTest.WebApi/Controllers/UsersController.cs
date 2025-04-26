@@ -20,6 +20,7 @@ public class UsersController(IMediator mediator) : Controller
     private readonly IMediator _mediator = mediator;
 
     [HttpPost]
+    [AllowAnonymous]
     [ProducesResponseType(typeof(CreateUserResult), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(CreateUserResult), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand request)
@@ -29,6 +30,7 @@ public class UsersController(IMediator mediator) : Controller
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     [ProducesResponseType(typeof(CreateUserResult), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetUsers([FromQuery] GetAllUsersQuery request)
