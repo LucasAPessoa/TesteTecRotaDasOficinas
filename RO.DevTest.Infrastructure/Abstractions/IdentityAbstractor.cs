@@ -54,4 +54,9 @@ public class IdentityAbstractor : IIdentityAbstractor {
 
         return await _userManager.AddToRoleAsync(user, role.ToString());
     }
+
+    public async Task<IdentityResult> UpdateUserAsync(User user)
+    {
+        return await _userManager.UpdateAsync(user);
+    }
 }
