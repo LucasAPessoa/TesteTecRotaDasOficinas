@@ -28,6 +28,8 @@ public static class InfrastructureDependecyInjector {
         services.AddScoped<IIdentityAbstractor, IdentityAbstractor>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ISaleRepository, SaleRepository>();
+        services.AddScoped<SaleItemService>();
 
         return services;
     }
