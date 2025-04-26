@@ -17,7 +17,14 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>{
             .WithMessage("O campo senha precisa ter, pelo menos, 6 caracteres");
 
         RuleFor(cpau => cpau.PasswordConfirmation)
-            .Matches(cpau => cpau.Password)
+            .Equal(cpau => cpau.Password)
             .WithMessage("O campo de confirmação de senha deve ser igual ao campo senha");
+        RuleFor(x => x.PhoneNumber)
+               .NotEmpty();
+        RuleFor(x => x.UserName)
+            .NotEmpty()
+            .WithMessage("O nome de usuário não pode ser vazio")
+            .MinimumLength(3)
+            .WithMessage("O nome de usuário deve ter pelo menos 3 caracteres");
     }
 }

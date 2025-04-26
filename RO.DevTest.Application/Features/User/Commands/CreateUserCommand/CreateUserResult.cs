@@ -5,6 +5,7 @@ public record CreateUserResult {
     public string UserName { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
 
     public CreateUserResult () { }
 
@@ -13,5 +14,6 @@ public record CreateUserResult {
         UserName = user.UserName!;
         Email = user.Email!;
         Name = user.Name!;
+        PhoneNumber = user.PhoneNumber!;
     }
 }

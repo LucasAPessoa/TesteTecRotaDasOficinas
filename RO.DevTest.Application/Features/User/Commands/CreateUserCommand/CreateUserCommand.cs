@@ -9,6 +9,7 @@ public class CreateUserCommand : IRequest<CreateUserResult> {
     public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
     public string PasswordConfirmation { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
     public UserRoles Role { get; set; }
 
     public Domain.Entities.User AssignTo() {
@@ -16,6 +17,8 @@ public class CreateUserCommand : IRequest<CreateUserResult> {
             UserName = UserName,
             Email = Email,
             Name = Name,
+            PhoneNumber = PhoneNumber,
+
         };
     }
 }
